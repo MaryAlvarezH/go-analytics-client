@@ -41,7 +41,7 @@ func main() {
 	}
 
 	// Step 3. Create report
-	report, err := getReport2(gaService)
+	report, err := getReport(gaService)
 
 	if err != nil {
 		fmt.Println("error creating report:", err)
@@ -54,60 +54,6 @@ func main() {
 func getReport(svc *gaRep.Service) (*gaRep.GetReportsResponse, error) {
 	req := &gaRep.GetReportsRequest{
 		// Our request contains only one request
-		// So initialise the slice with one ga.ReportRequest object
-		ReportRequests: []*gaRep.ReportRequest{
-			// Create the ReportRequest object.
-			{
-				ViewId: "261593436",
-				DateRanges: []*gaRep.DateRange{
-					// Create the DateRange object.
-					{StartDate: "2022-09-01", EndDate: "today"},
-				},
-				Metrics: []*gaRep.Metric{
-					// Create the Metrics object.
-					{Expression: "ga:users", Alias: "Users"},
-					{Expression: "ga:sessions", Alias: "Sessions"},
-					{Expression: "ga:transactions", Alias: "Transactions"},
-					{Expression: "ga:transactionRevenue", Alias: "Revenue"},
-				},
-				Dimensions: []*gaRep.Dimension{
-					{Name: "ga:country"},
-					{Name: "ga:segment"},
-				},
-				MetricFilterClauses: []*gaRep.MetricFilterClause{
-					{
-						Filters: []*gaRep.MetricFilter{
-							{
-								MetricName:      "ga:transactions",
-								Operator:        "GREATER_THAN",
-								ComparisonValue: "20",
-							},
-						},
-					},
-				},
-				DimensionFilterClauses: []*gaRep.DimensionFilterClause{
-					{
-						Filters: []*gaRep.DimensionFilter{
-							{
-								DimensionName: "ga:country",
-								Operator:      "EXACT",
-								Expressions:   []string{"Mexico"},
-							},
-						},
-					},
-				},
-				Segments: []*gaRep.Segment{
-					{SegmentId: "gaid::-2"},
-				},
-			},
-		},
-	}
-	return svc.Reports.BatchGet(req).Do()
-}
-
-func getReport2(svc *gaRep.Service) (*gaRep.GetReportsResponse, error) {
-	req := &gaRep.GetReportsRequest{
-		// Our request contains only one request
 		// So initialise the slice with one ga.ReportRequest struct.
 		ReportRequests: []*gaRep.ReportRequest{
 			// Create the ReportRequest struct.
@@ -117,7 +63,6 @@ func getReport2(svc *gaRep.Service) (*gaRep.GetReportsResponse, error) {
 				DateRanges: []*gaRep.DateRange{
 					// Create the DateRange struct.
 					{StartDate: "2022-09-01", EndDate: "today"},
-					{StartDate: "2022-08-01", EndDate: "2022-08-30"},
 				},
 				// Create the Metrics struct.
 				Metrics: []*gaRep.Metric{
@@ -141,7 +86,7 @@ func getReport2(svc *gaRep.Service) (*gaRep.GetReportsResponse, error) {
 							{
 								MetricName:      "ga:transactions",
 								Operator:        "GREATER_THAN",
-								ComparisonValue: "1000",
+								ComparisonValue: "100",
 							},
 						},
 					},
