@@ -20,15 +20,18 @@
      <img width="1132" alt="Screen Shot 2022-10-05 at 10 19 40" src="https://user-images.githubusercontent.com/38545126/194098325-cf93653d-1c27-4c59-b1ac-e1502a693b6a.png">
 
    - Select your google account
+   
      <img width="491" alt="Screen Shot 2022-10-05 at 10 19 55" src="https://user-images.githubusercontent.com/38545126/194098328-f86d9580-df5e-483f-b97b-cfe6c948d3c0.png">
 
    - Conceed the requested permissions
+   
      <img width="484" alt="Screen Shot 2022-10-05 at 10 20 07" src="https://user-images.githubusercontent.com/38545126/194098335-11a9c1dc-9c43-4b51-b76b-1d94611656a8.png">
 
    - In Step 2 exchange your authorization code for tokens
      <img width="1131" alt="Screen Shot 2022-10-05 at 10 20 24" src="https://user-images.githubusercontent.com/38545126/194098340-67494fd7-bfe2-4b0c-ac3a-846812254e7b.png">
 
    - Save your access token and refresh token
+   
      <img width="491" alt="Screen Shot 2022-10-05 at 10 20 42" src="https://user-images.githubusercontent.com/38545126/194098362-76b0b984-7368-49cb-a6c4-4d98542d2250.png">
 
 3. Use https://pkg.go.dev/google.golang.org/api/analyticsreporting/v4 package to connect with Analytics reporting API
